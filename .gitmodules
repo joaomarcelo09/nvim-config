@@ -1,0 +1,6 @@
+[submodule "autoload/plugged/nvim-jdtls"]
+	path = autoload/plugged/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
+[submodule "autoload/plugged/vim-prisma"]
+	path = autoload/plugged/vim-prisma
+	url = https://github.com/jakewvincent/vim-prisma

@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'prisma/vim-prisma'
 
     " Debugger 
     Plug 'mfussenegger/nvim-dap'
@@ -46,14 +47,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Styled components
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
-    " lsp 
-
     " Configuração de Plugins relacionados ao CMP
   
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'mfussenegger/nvim-jdtls'
 
     " Airline vim
     Plug 'vim-airline/vim-airline'
