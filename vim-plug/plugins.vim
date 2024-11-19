@@ -54,6 +54,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
     Plug 'mfussenegger/nvim-jdtls'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
 
     " Airline vim
     Plug 'vim-airline/vim-airline'

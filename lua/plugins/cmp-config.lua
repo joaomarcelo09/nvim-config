@@ -87,3 +87,8 @@ require'lspconfig'.vimls.setup{
   },
 }
 
+require("null-ls").setup({
+  sources = {
+    require("null-ls").builtins.formatting.black, -- ou outro formatador Python
+  },
+})

@@ -6,7 +6,7 @@ local lspconfig = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   capabilities = capabilities, -- Passa as capacidades para o servidor
   on_attach = function(client, bufnr)
     -- Desabilitar a formatação padrão para usar ferramentas como Prettier
