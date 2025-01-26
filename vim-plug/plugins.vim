@@ -39,7 +39,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mfussenegger/nvim-dap'
 
     " Dracula
-    Plug 'dracula/vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
@@ -91,5 +91,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
-"Configuração do tema
-colorscheme dracula
+

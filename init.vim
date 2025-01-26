@@ -24,3 +24,7 @@ source ~/.config/nvim/plug-config/dap-config.lua
 
 "Sintax
 source ~/.config/nvim/lua/plugins/threesitter.lua
+
+"Configuração do tema
+colorscheme dracula
+syntax enable
