@@ -1,9 +1,15 @@
-local lspconfig = require('lspconfig')
+print("Starting html LS")
 
-lspconfig.html.setup {
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    -- Configurações específicas para quando o LSP for anexado
-  end,
-  filetypes = { "html", "xhtml" },  -- Adiciona 'xhtml' como tipo de arquivo
-}
+require'lspconfig'.html.setup({
+  cmd = { "vscode-html-languageserver", "--stdio" },
+  filetypes = { "html", "xhtml" },  -- Suporte para arquivos .html e .xhtml
+  settings = {
+    html = {
+      format = {
+        enable = true  -- Ativa o formato automático
+      }
+    }
+  }
+})
+
+print("Success loaded html LS")

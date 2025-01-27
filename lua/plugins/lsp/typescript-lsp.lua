@@ -28,3 +28,4 @@ lspconfig.ts_ls.setup {
   }
 }
 
+print("Sucess load typescript LS")
