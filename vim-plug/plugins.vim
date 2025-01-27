@@ -35,6 +35,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'prisma/vim-prisma'
 
+    " Mason
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+
+    " Java LS
+    Plug 'mfussenegger/nvim-jdtls'
+
     " Debugger 
     Plug 'mfussenegger/nvim-dap'
 
@@ -54,7 +61,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'mfussenegger/nvim-jdtls'
     Plug 'jose-elias-alvarez/null-ls.nvim'
 
     " Airline vim
