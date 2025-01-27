@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Dracula
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'folke/tokyonight.nvim'
 
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'

@@ -1,0 +1,3 @@
+# Ignorar a pasta autoload/plugged que é gerada automaticamente
+autoload/plugged/
+
