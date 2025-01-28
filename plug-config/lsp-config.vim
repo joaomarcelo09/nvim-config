@@ -12,9 +12,9 @@ nnoremap <silent> ge :lua vim.diagnostic.open_float()<CR>
 
 
 " Autoformatar e organizar imports ao salvar arquivos JavaScript, JSX, Go, TypeScript e Python
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
+"autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+"autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+"autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)
+"autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 "autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
 

@@ -1,15 +1,10 @@
 print("Starting html LS")
 
-require'lspconfig'.html.setup({
-  cmd = { "vscode-html-languageserver", "--stdio" },
-  filetypes = { "html", "xhtml" },  -- Suporte para arquivos .html e .xhtml
-  settings = {
-    html = {
-      format = {
-        enable = true  -- Ativa o formato automático
-      }
-    }
-  }
-})
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
 
 print("Success loaded html LS")

@@ -8,6 +8,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.ts_ls.setup {
   capabilities = capabilities, -- Passa as capacidades para o servidor
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
   on_attach = function(client, bufnr)
     -- Desabilitar a formatação padrão para usar ferramentas como Prettier
     client.server_capabilities.documentFormattingProvider = false

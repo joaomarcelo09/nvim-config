@@ -19,7 +19,7 @@ source ~/.config/nvim/lua/plugins/telescope-config.lua
 source ~/.config/nvim/lua/plugins/cmp-config.lua
 
 " Mason Config
-source ~/.config/nvim/lua/plugins/mason-config.lua
+"source ~/.config/nvim/lua/plugins/mason-config.lua
 
 " Carregar configuração do LSP
 source ~/.config/nvim/plug-config/lsp-config.vim
@@ -28,7 +28,7 @@ source ~/.config/nvim/plug-config/lsp-config.vim
 
 source ~/.config/nvim/lua/plugins/lsp/html-lsp.lua
 source ~/.config/nvim/lua/plugins/lsp/typescript-lsp.lua
-"source ~/.config/nvim/lua/plugins/lsp/java-lsp.lua
+source ~/.config/nvim/lua/plugins/lsp/java-lsp.lua
 "source ~/.config/nvim/lua/plugins/lsp/python-lsp.lua
 
 " Debugger
