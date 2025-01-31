@@ -7,22 +7,31 @@ colorscheme tokyonight
 set wildmenu
 set wildmode=longest:full,full
 
+" NERDTree config
+source ~/.config/nvim/lua/plugins/nerdtree-config.lua
+
 " Mantém o NERDTree aberto ao abrir arquivos
-autocmd VimEnter * NERDTree | wincmd p
-autocmd BufEnter * if !&diff | silent! NERDTreeMirror | endif
-nnoremap , :NERDTreeToggle<CR>
+"autocmd VimEnter * NERDTree | wincmd p
+"autocmd BufEnter * if !&diff | silent! NERDTreeMirror | endif
+"nnoremap , :NERDTreeToggle<CR>
 
 " Telescope config
 source ~/.config/nvim/lua/plugins/telescope-config.lua
 
 " Carregar configuração do cmp
 source ~/.config/nvim/lua/plugins/cmp-config.lua
+source ~/.config/nvim/lua/plugins/colorful-menu-config.lua
+"source ~/.config/nvim/lua/plugins/blink-config.lua
 
 " Mason Config
 "source ~/.config/nvim/lua/plugins/mason-config.lua
 
 " Carregar configuração do LSP
 source ~/.config/nvim/plug-config/lsp-config.vim
+
+" Appearance
+source ~/.config/nvim/lua/plugins/lua-line-config.lua
+source ~/.config/nvim/lua/plugins/bufferline-config.lua
 
 " Language servers
 

@@ -1,94 +1,50 @@
-vim.o.completeopt = "menuone,noselect"
+-- Carregar o cmp
+local cmp = require'cmp'
 
--- Configuração do compe
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = {
-    border = { '', '' ,'', ' ', '', '', '', ' ' },
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  };
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    vsnip = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    spell = true;
-    tags = true;
-    snippets_nvim = true;
-    treesitter = true;
-  };
-}
-
--- Funções para navegação no menu de autocomplete
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
-
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif vim.fn then return t "<Plug>(vsnip-expand-or-jump)"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn["compe#complete"]()
-  end
-end
-
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
-  else
-    return t "<S-Tab>"
-  end
-end
-
--- Mapas para navegação e confirmação
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {expr = true, noremap = true})
-
--- Configuração opcional adicional para outros LSPs
-require'lspconfig'.vimls.setup{
-  capabilities = {
-    textDocument = {
-      completion = {
-        completionItem = {
-          snippetSupport = true
-        }
-      }
-    }
+-- Carregar e configurar o colorful-menu
+require'colorful-menu'.setup {
+  enable = true,  -- Habilitar o colorful-menu
+  highlight = {
+    lsp = 'CmpItemKindFunction',  -- Cor para sugestões LSP (Funções)
+    buffer = 'CmpItemKindVariable', -- Cor para sugestões do buffer (Variáveis)
+    path = 'CmpItemKindKeyword',  -- Cor para sugestões de caminho (Keywords)
+    luasnip = 'CmpItemKindSnippet',  -- Cor para sugestões de snippets
   },
+  -- Outras opções podem ser ajustadas conforme necessário
 }
 
-require("null-ls").setup({
+-- Configuração do cmp com colorful-menu integrado
+cmp.setup {
+  completion = {
+    autocomplete = { cmp.TriggerEvent.TextChanged, cmp.TriggerEvent.InsertEnter },
+  },
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- Usando LuaSnip para expansão de snippets
+    end,
+  },
+  mapping = {
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirmar seleção
+  },
   sources = {
-    require("null-ls").builtins.formatting.black, -- ou outro formatador Python
+    { name = 'nvim_lsp' }, -- LSP
+    { name = 'buffer' }, -- Texto do buffer
+    { name = 'path' }, -- Caminhos de arquivos
+    { name = 'luasnip' }, -- Snippets
   },
-})
+  window = {
+    completion = {
+      -- Utilizando o Colorful Menu para personalizar as cores do menu
+      winhighlight = 'Normal:Pmenu,NormalNC:Pmenu,CursorLine:PmenuSel,Search:PmenuSel'
+    },
+  },
+}
+
+-- Configuração para LSP
+local capabilities = require'cmp_nvim_lsp'.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require'lspconfig'.vimls.setup {
+  capabilities = capabilities,
+}
+

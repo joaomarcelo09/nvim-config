@@ -55,13 +55,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Styled components
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+    " Lsp Config
+    Plug 'neovim/nvim-lspconfig'
+
     " Configuração de Plugins relacionados ao CMP
   
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'saghen/blink.cmp'
+    Plug 'xzbdmw/colorful-menu.nvim'
 
     " Airline vim
     Plug 'vim-airline/vim-airline'
@@ -78,6 +85,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
      " Used to shows icons on screen
     Plug 'nvim-tree/nvim-web-devicons'
+
+    " Status bar
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    Plug 'nvim-lualine/lualine.nvim'
 
     "Plugin for search engine inside nvim
     Plug 'nvim-lua/popup.nvim'
