@@ -2,7 +2,6 @@ require("bufferline").setup({
   options = {
     indicator = {
       style = "icon",
-      icon = "●",  -- Pode mudar para "○", "*" ou outro
     }
   }
 })
