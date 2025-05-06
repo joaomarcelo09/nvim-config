@@ -35,6 +35,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'prisma/vim-prisma'
 
+    " Nerd Font Icons (MUST HAVE for icons to appear)
+    Plug 'ryanoasis/vim-devicons'
+
     " Mason
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'

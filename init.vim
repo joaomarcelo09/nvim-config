@@ -2,7 +2,7 @@ source ~/.config/nvim/settings.vim
 source ~/.config/nvim/vim-plug/plugins.vim
 
 " Theme
-colorscheme tokyonight
+colorscheme dracula
 
 set wildmenu
 set wildmode=longest:full,full
