@@ -26,9 +26,6 @@ source ~/.config/nvim/lua/plugins/colorful-menu-config.lua
 " Mason Config
 "source ~/.config/nvim/lua/plugins/mason-config.lua
 
-" Carregar configuração do LSP
-source ~/.config/nvim/plug-config/lsp-config.vim
-
 " Appearance
 source ~/.config/nvim/lua/plugins/lua-line-config.lua
 source ~/.config/nvim/lua/plugins/bufferline-config.lua
@@ -45,3 +42,7 @@ source ~/.config/nvim/plug-config/dap-config.lua
 
 "Sintax
 source ~/.config/nvim/lua/plugins/threesitter.lua
+
+" Load all shortcuts
+source ~/.config/nvim/plug-config/shortcuts-config.lua
+

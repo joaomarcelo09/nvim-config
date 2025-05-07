@@ -1,50 +1,49 @@
--- Carregar o cmp
+-- Load cmp
 local cmp = require'cmp'
 
--- Carregar e configurar o colorful-menu
+-- Load and configure colorful-menu
 require'colorful-menu'.setup {
-  enable = true,  -- Habilitar o colorful-menu
+  enable = true,  -- Enable colorful-menu
   highlight = {
-    lsp = 'CmpItemKindFunction',  -- Cor para sugestões LSP (Funções)
-    buffer = 'CmpItemKindVariable', -- Cor para sugestões do buffer (Variáveis)
-    path = 'CmpItemKindKeyword',  -- Cor para sugestões de caminho (Keywords)
-    luasnip = 'CmpItemKindSnippet',  -- Cor para sugestões de snippets
+    lsp = 'CmpItemKindFunction',  -- Color for LSP suggestions (Functions)
+    buffer = 'CmpItemKindVariable', -- Color for buffer suggestions (Variables)
+    path = 'CmpItemKindKeyword',  -- Color for path suggestions (Keywords)
+    luasnip = 'CmpItemKindSnippet',  -- Color for snippet suggestions
   },
-  -- Outras opções podem ser ajustadas conforme necessário
+  -- Other options can be adjusted as needed
 }
 
--- Configuração do cmp com colorful-menu integrado
+-- cmp setup with integrated colorful-menu
 cmp.setup {
   completion = {
     autocomplete = { cmp.TriggerEvent.TextChanged, cmp.TriggerEvent.InsertEnter },
   },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- Usando LuaSnip para expansão de snippets
+      require('luasnip').lsp_expand(args.body) -- Using LuaSnip to expand snippets
     end,
   },
   mapping = {
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirmar seleção
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm selection
   },
   sources = {
     { name = 'nvim_lsp' }, -- LSP
-    { name = 'buffer' }, -- Texto do buffer
-    { name = 'path' }, -- Caminhos de arquivos
+    { name = 'buffer' }, -- Buffer text
+    { name = 'path' }, -- File paths
     { name = 'luasnip' }, -- Snippets
   },
   window = {
     completion = {
-      -- Utilizando o Colorful Menu para personalizar as cores do menu
+      -- Using Colorful Menu to customize the menu colors
       winhighlight = 'Normal:Pmenu,NormalNC:Pmenu,CursorLine:PmenuSel,Search:PmenuSel'
     },
   },
 }
 
--- Configuração para LSP
+-- LSP configuration
 local capabilities = require'cmp_nvim_lsp'.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require'lspconfig'.vimls.setup {
   capabilities = capabilities,
 }
-

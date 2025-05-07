@@ -1,0 +1,75 @@
+-- Helper for cleaner key mapping
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+local builtin = require('telescope.builtin')
+
+-- SHORTCUTS
+
+-- Save code in buffer
+map('n', '<leader>sb', ':w<CR>', opts)
+
+-- Format with Prettier
+map('n', '<leader>fb', ':Prettier<CR>', opts)
+
+-- Visual
+map('n', '<C-a>', 'ggVG', { desc = "Select all text" })
+map('n', 'dl', '"_dd', { desc = "Delete line without copying" })
+map('n', 'dw', '"_dw', { desc = "Delete word without copying" })
+
+-- Local buffer search with Telescope
+
+map('n', '<leader>fl', function()
+  builtin.current_buffer_fuzzy_find({
+    previewer = false, 
+    layout_strategy = 'vertical', 
+    winblend = 0, 
+    border = true,  
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' }, 
+  })
+end, { desc = "Local Buffer Fuzzy Find" })
+
+-- Search in general files
+map('n', '<leader>ff', function()
+  builtin.find_files({
+    previewer = true, 
+    layout_strategy = 'horizontal', 
+    winblend = 20, 
+    border = true, 
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' },
+  })
+end, { desc = "Find Files" })
+
+-- Search with live grep
+map('n', '<leader>fg', function()
+  builtin.live_grep({
+    previewer = true,
+    layout_strategy = 'horizontal',
+    winblend = 20,
+    border = true,
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' },
+  })
+end, { desc = "Live Grep" })
+
+-- Git Diff using Fugitive
+map('n', '<leader>gc', ':Gdiffsplit<CR>', { desc = "Git Diff" })
+
+-- Navigate to previous conflict in merge
+map('n', '<leader>c[', ':Gdiffsplit<CR>', { desc = "Previous Conflict" })
+
+-- Navigate to next conflict in merge
+map('n', '<leader>c]', ':Gdiffsplit<CR>', { desc = "Next Conflict" })
+
+-- Git Mergetool (use external merge tool)
+map('n', '<leader>gm', ':!git mergetool<CR>', { desc = "Git Mergetool" })
+
+-- LSP config
+map('n', 'gd', vim.lsp.buf.definition, opts)
+map('n', 'gdd', vim.lsp.buf.declaration, opts)
+map('n', 'gr', vim.lsp.buf.references, opts)
+map('n', 'gi', vim.lsp.buf.implementation, opts)
+map('n', 'gk', vim.lsp.buf.hover, opts)
+map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+map('n', '<C-n>', vim.diagnostic.goto_prev, opts)
+map('n', '<C-p>', vim.diagnostic.goto_next, opts)
+map('n', 'mm', vim.lsp.buf.rename, opts)
+map('n', 'ge', vim.diagnostic.open_float, opts)
