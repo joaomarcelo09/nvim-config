@@ -14,9 +14,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end
 })
 
--- Atalho para alternar o NERDTree com `,`
-vim.api.nvim_set_keymap("n", ",", ":NERDTreeToggle<CR>", { noremap = true, silent = true })
-
 vim.g.NERDTreeDirArrowExpandable = ""
 vim.g.NERDTreeDirArrowCollapsible = ""
 

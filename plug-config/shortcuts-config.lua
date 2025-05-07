@@ -16,6 +16,14 @@ map('n', '<C-a>', 'ggVG', { desc = "Select all text" })
 map('n', 'dl', '"_dd', { desc = "Delete line without copying" })
 map('n', 'dw', '"_dw', { desc = "Delete word without copying" })
 
+-- Toggle NERDTree
+map("n", ",", ":NERDTreeToggle<CR>", opts)
+
+-- Controls of bufferline
+map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
+map('n', 'L', ':BufferLineCycleNext<CR>', opts)
+map('n', '<leader>c', ':bdelete<CR>', opts)
+
 -- Local buffer search with Telescope
 
 map('n', '<leader>fl', function()
