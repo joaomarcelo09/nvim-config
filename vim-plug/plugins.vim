@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'prisma/vim-prisma'
 
     " Nerd Font Icons (MUST HAVE for icons to appear)
