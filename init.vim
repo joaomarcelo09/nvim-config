@@ -35,7 +35,7 @@ source ~/.config/nvim/lua/plugins/bufferline-config.lua
 source ~/.config/nvim/lua/plugins/lsp/html-lsp.lua
 source ~/.config/nvim/lua/plugins/lsp/typescript-lsp.lua
 source ~/.config/nvim/lua/plugins/lsp/java-lsp.lua
-"source ~/.config/nvim/lua/plugins/lsp/python-lsp.lua
+source ~/.config/nvim/lua/plugins/lsp/python-lsp.lua
 
 " Debugger
 source ~/.config/nvim/plug-config/dap-config.lua
