@@ -24,7 +24,7 @@ source ~/.config/nvim/lua/plugins/colorful-menu-config.lua
 "source ~/.config/nvim/lua/plugins/blink-config.lua
 
 " Mason Config
-"source ~/.config/nvim/lua/plugins/mason-config.lua
+source ~/.config/nvim/lua/plugins/mason-config.lua
 
 " Appearance
 source ~/.config/nvim/lua/plugins/lua-line-config.lua

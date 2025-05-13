@@ -1,6 +1,4 @@
-" auto-install vim-plug
-" =============================================================================
-" Plugin Manager Setup
+
 " =============================================================================
 "
 filetype off
@@ -39,15 +37,22 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Nerd Font Icons (MUST HAVE for icons to appear)
     Plug 'ryanoasis/vim-devicons'
 
-    " Mason
+    " Mason and its lspconfig bridge
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+
+    " Optional: DAP integration
+    Plug 'jay-babu/mason-nvim-dap.nvim'
 
     " Java LS
     Plug 'mfussenegger/nvim-jdtls'
 
     " Debugger 
+    Plug 'nvim-neotest/nvim-nio' 
     Plug 'mfussenegger/nvim-dap'
+    Plug 'rcarriga/nvim-dap-ui'
+    Plug 'theHamsta/nvim-dap-virtual-text'
 
     " Dracula
     Plug 'dracula/vim', { 'as': 'dracula' }

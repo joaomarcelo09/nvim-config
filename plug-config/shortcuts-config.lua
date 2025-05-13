@@ -2,6 +2,7 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
+local dap, dapui = require("dap"), require("dapui")
 
 -- SHORTCUTS
 
@@ -23,6 +24,22 @@ map("n", ",", ":NERDTreeToggle<CR>", opts)
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
 map('n', 'L', ':BufferLineCycleNext<CR>', opts)
 map('n', '<leader>c', ':bdelete<CR>', opts)
+
+-- Debugger SHORTCUTS
+
+map("n", "<F5>", dap.continue)
+map("n", "<F10>", dap.step_over)
+map("n", "<F11>", dap.step_into)
+map("n", "<F12>", dap.step_out)
+map("n", "<Leader>b", dap.toggle_breakpoint)
+map("n", "<Leader>dt", function()
+  dap.terminate()
+  dapui.close()
+end)
+map("n", "<Leader>B", function()
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+map("n", "<Leader>du", dapui.toggle)
 
 -- Local buffer search with Telescope
 
