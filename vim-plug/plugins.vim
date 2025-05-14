@@ -50,13 +50,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Debugger 
     Plug 'nvim-neotest/nvim-nio' 
+    Plug 'mfussenegger/nvim-dap-python'
     Plug 'mfussenegger/nvim-dap'
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'theHamsta/nvim-dap-virtual-text'
 
     " Dracula
-    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'folke/tokyonight.nvim'
+    Plug 'Mofiqul/dracula.nvim'
+    Plug 'ful1e5/onedark.nvim'
+    Plug 'ellisonleao/gruvbox.nvim'
 
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'

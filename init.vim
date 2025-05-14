@@ -2,7 +2,7 @@ source ~/.config/nvim/settings.vim
 source ~/.config/nvim/vim-plug/plugins.vim
 
 " Theme
-colorscheme dracula
+source ~/.config/nvim/lua/plugins/theme-config.lua
 
 set wildmenu
 set wildmode=longest:full,full

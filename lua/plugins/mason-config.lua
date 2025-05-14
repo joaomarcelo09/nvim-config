@@ -13,11 +13,11 @@ require("mason-tool-installer").setup({
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "eslint" }, -- whatever you want preinstalled
+  ensure_installed = { "ts_ls", "eslint" },
 })
 
 require("mason-nvim-dap").setup({
-  ensure_installed = { "node2" }, -- or "js" for js-debug
+  ensure_installed = { "node2", "python" },
   automatic_setup = true,
 })
 
