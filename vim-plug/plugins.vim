@@ -57,7 +57,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Dracula
     Plug 'folke/tokyonight.nvim'
-    Plug 'Mofiqul/dracula.nvim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'ful1e5/onedark.nvim'
     Plug 'ellisonleao/gruvbox.nvim'
 
