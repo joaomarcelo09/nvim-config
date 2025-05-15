@@ -60,6 +60,7 @@ require("dapui").setup({
       -- Elements shown on the bottom
       elements = {
         "repl",
+        "console"
       },
       size = 10, -- 📏 height of the bottom window
       position = "bottom",
