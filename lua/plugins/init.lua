@@ -1,5 +1,8 @@
+
 return {
-  
+
+  require("plugins.alpha"),
+
   -- Nerdtree
   {
     "preservim/nerdtree",
