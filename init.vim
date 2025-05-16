@@ -37,6 +37,9 @@ source ~/.config/nvim/lua/plugins/lsp/python-lsp.lua
 " Debugger
 source ~/.config/nvim/plug-config/dap-config.lua
 
+" Fine cmdline
+source ~/.config/nvim/lua/plugins/cmdline.lua
+
 "Sintax
 source ~/.config/nvim/lua/plugins/threesitter.lua
 

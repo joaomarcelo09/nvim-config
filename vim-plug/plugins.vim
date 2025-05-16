@@ -55,6 +55,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'theHamsta/nvim-dap-virtual-text'
 
+    " CmdLine
+    Plug 'VonHeikemen/fine-cmdline.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+
     " Dracula
     Plug 'folke/tokyonight.nvim'
     Plug 'dracula/vim', { 'as': 'dracula' }

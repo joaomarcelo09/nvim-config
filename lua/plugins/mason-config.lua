@@ -3,6 +3,7 @@ require("mason").setup()
 
 require("mason-tool-installer").setup({
   ensure_installed = {
+    "jdtls",
     "ts_ls",
     "eslint_d",
     "prettier",
@@ -13,7 +14,7 @@ require("mason-tool-installer").setup({
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "eslint" },
+  ensure_installed = { "ts_ls", "eslint", "jdtls" },
 })
 
 require("mason-nvim-dap").setup({

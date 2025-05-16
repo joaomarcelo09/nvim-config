@@ -12,6 +12,9 @@ map('n', '<leader>sb', ':w<CR>', opts)
 -- Format with Prettier
 map('n', '<leader>fb', ':Prettier<CR>', opts)
 
+-- Fine cmdline
+map('n', ':', '<cmd>FineCmdline<CR>', opts)
+
 -- Resize screen
 
 map('n', '<leader>h]', ':resize +20<CR>', opts)
