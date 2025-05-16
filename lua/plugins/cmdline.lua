@@ -5,21 +5,23 @@ require('fine-cmdline').setup({
     prompt = ': '
   },
   popup = {
-    position = {
-      row = '10%',
-      col = '50%',
-    },
-    size = {
-      width = '60%',
-    },
-    border = {
-      style = 'rounded',
-    },
-    win_options = {
-      winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
-    },
+  position = {
+    row = '30%', 
+    col = '50%', 
   },
-  hooks = {
+  size = {
+    width = '40%',
+  },
+  border = {
+    style = 'rounded',
+  },
+  relative = "editor",
+  win_options = {
+  winhighlight = "Normal:None,FloatBorder:FineCmdlineBorder",
+  winblend = 100,
+  },
+},
+ hooks = {
     before_mount = function(input)
       -- code
     end,

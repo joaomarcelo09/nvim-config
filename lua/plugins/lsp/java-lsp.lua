@@ -25,7 +25,7 @@ local config = {
   init_options = {
     bundles = {}, -- You can add java-debug bundles here later
   },
-
+  
   workspace_folders = {
     { name = project_name, uri = "file://" .. workspace_dir },
   },
