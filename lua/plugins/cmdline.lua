@@ -18,7 +18,6 @@ require('fine-cmdline').setup({
   relative = "editor",
   win_options = {
   winhighlight = "Normal:None,FloatBorder:FineCmdlineBorder",
-  winblend = 100,
   },
 },
  hooks = {
