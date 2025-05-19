@@ -211,10 +211,7 @@ return {
   -- TMUX Navigator
   "christoomey/vim-tmux-navigator",
 
-  -- Vim Debugger
-  "puremourning/vimspector",
-
-  -- Cmdline Popup
+ -- Cmdline Popup
   "VonHeikemen/fine-cmdline.nvim",
   "MunifTanjim/nui.nvim",
 
