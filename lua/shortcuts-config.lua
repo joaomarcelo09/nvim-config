@@ -7,10 +7,10 @@ local dap, dapui = require("dap"), require("dapui")
 -- SHORTCUTS
 
 -- Save code in buffer
-map('n', '<leader>sb', ':w<CR>', opts)
+map('n', 'W', ':w<CR>', opts)
 
 -- Format with Prettier
-map('n', '<leader>fb', ':Prettier<CR>', opts)
+map('n', 'F', ':Prettier<CR>', opts)
 
 -- Fine cmdline
 map('n', ':', '<cmd>FineCmdline<CR>', opts)
@@ -101,6 +101,8 @@ map('n', '<leader>gm', ':!git mergetool<CR>', { desc = "Git Mergetool" })
 map('n', 'gd', vim.lsp.buf.definition, opts)
 map('n', 'gdd', vim.lsp.buf.declaration, opts)
 map('n', 'gr', vim.lsp.buf.references, opts)
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "LSP Rename" })
 map('n', 'gi', vim.lsp.buf.implementation, opts)
 map('n', 'gk', vim.lsp.buf.hover, opts)
 map('n', '<C-n>', vim.diagnostic.goto_prev, opts)
