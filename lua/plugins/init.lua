@@ -131,9 +131,7 @@ return {
 
   {
   "saghen/blink.cmp",
-  config = function()
-    require("plugins.blink-config")
-  end,
+  version = "1.*",
   },
 
  {
