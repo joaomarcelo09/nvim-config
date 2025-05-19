@@ -28,7 +28,7 @@ map('n', 'dl', '"_dd', { desc = "Delete line without copying" })
 map('n', 'dw', '"_dw', { desc = "Delete word without copying" })
 
 -- Toggle NERDTree
-map("n", ",", ":NERDTreeToggle<CR>", opts)
+map("n", ",", ":NvimTreeToggle<CR>", opts)
 
 -- Controls of bufferline
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)

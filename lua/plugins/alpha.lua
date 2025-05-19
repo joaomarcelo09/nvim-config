@@ -18,7 +18,7 @@ return {
 
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-      dashboard.button(",", "  > Toggle file explorer", "<cmd>NERDTreeToggle<CR>"),
+      dashboard.button(",", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
       dashboard.button("<Space>ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
       dashboard.button("<Space>fg", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
       dashboard.button("u", "󰚰  > Update packages", "<cmd>Lazy<CR>"),
