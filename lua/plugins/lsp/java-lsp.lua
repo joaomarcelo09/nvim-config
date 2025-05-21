@@ -5,10 +5,18 @@ local home = os.getenv("HOME")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = home .. "/.local/share/eclipse/" .. project_name
 
+-- Define on_attach to adjust semantic token priority for Java LSP only
+local on_attach = function(client, bufnr)
+  -- Lower priority so Tree-sitter wins the syntax battle
+  vim.highlight.priorities.semantic_tokens = 95
+end
+
 -- Build config
 local config = {
-  cmd = { "jdtls" }, -- Mason installs jdtls binary, no need to mess with .jar paths
+  cmd = { "jdtls" },
   root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
+
+  on_attach = on_attach, -- Attach our magic when LSP starts
 
   settings = {
     java = {
@@ -40,3 +48,4 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 print("✅ Java LSP (jdtls) configured successfully.")
+

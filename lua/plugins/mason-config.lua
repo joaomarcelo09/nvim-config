@@ -1,4 +1,5 @@
 print("Configuring mason debugger")
+
 require("mason").setup()
 
 require("mason-tool-installer").setup({
@@ -12,7 +13,6 @@ require("mason-tool-installer").setup({
   auto_update = true,
 })
 
-require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = { "ts_ls", "eslint", "jdtls" },
 })

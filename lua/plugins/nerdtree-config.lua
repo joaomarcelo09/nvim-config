@@ -1,9 +1,3 @@
--- Abre o NERDTree automaticamente ao iniciar o Neovim e foca no último buffer
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*",
-  command = "NERDTree | wincmd p"
-})
-
 -- Mantém o NERDTree sincronizado ao trocar de buffer, exceto em diffs
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
@@ -41,7 +35,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end
 })
-
-
-
 

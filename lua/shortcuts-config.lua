@@ -7,10 +7,10 @@ local dap, dapui = require("dap"), require("dapui")
 -- SHORTCUTS
 
 -- Save code in buffer
-map('n', '<leader>sb', ':w<CR>', opts)
+map('n', 'W', ':w<CR>', opts)
 
 -- Format with Prettier
-map('n', '<leader>fb', ':Prettier<CR>', opts)
+map('n', 'F', ':Prettier<CR>', opts)
 
 -- Fine cmdline
 map('n', ':', '<cmd>FineCmdline<CR>', opts)
@@ -28,7 +28,7 @@ map('n', 'dl', '"_dd', { desc = "Delete line without copying" })
 map('n', 'dw', '"_dw', { desc = "Delete word without copying" })
 
 -- Toggle NERDTree
-map("n", ",", ":NERDTreeToggle<CR>", opts)
+map("n", ",", ":NvimTreeToggle<CR>", opts)
 
 -- Controls of bufferline
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
@@ -50,6 +50,13 @@ map("n", "<Leader>B", function()
   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
 map("n", "<Leader>du", dapui.toggle)
+map('n', '<leader>dr', function()
+  dap.terminate()
+  vim.defer_fn(function()
+    dap.run_last()
+    print("🔁 DAP restarted with updated code.")
+  end, 100)
+end, { desc = "Restart DAP session" })
 
 -- Local buffer search with Telescope
 
@@ -101,10 +108,11 @@ map('n', '<leader>gm', ':!git mergetool<CR>', { desc = "Git Mergetool" })
 map('n', 'gd', vim.lsp.buf.definition, opts)
 map('n', 'gdd', vim.lsp.buf.declaration, opts)
 map('n', 'gr', vim.lsp.buf.references, opts)
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "LSP Rename" })
+map('n', '<leader>rs', '<cmd>LspRestart<CR>', { desc = "Restart LSP" })
 map('n', 'gi', vim.lsp.buf.implementation, opts)
 map('n', 'gk', vim.lsp.buf.hover, opts)
-map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 map('n', '<C-n>', vim.diagnostic.goto_prev, opts)
 map('n', '<C-p>', vim.diagnostic.goto_next, opts)
-map('n', 'mm', vim.lsp.buf.rename, opts)
 map('n', 'ge', vim.diagnostic.open_float, opts)
