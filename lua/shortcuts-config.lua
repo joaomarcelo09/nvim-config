@@ -6,6 +6,10 @@ local dap, dapui = require("dap"), require("dapui")
 
 -- SHORTCUTS
 
+-- Quit Nirvinho
+map('n', 'Q', ':qa<CR>', opts)
+map('n', 'qq', ':q<CR>', opts)
+
 -- Save code in buffer
 map('n', 'W', ':w<CR>', opts)
 
@@ -17,10 +21,10 @@ map('n', ':', '<cmd>FineCmdline<CR>', opts)
 
 -- Resize screen
 
-map('n', '<leader>h]', ':resize +20<CR>', opts)
-map('n', '<leader>v]', ':vertical resize +20<CR>', opts)
-map('n', '<leader>h[', ':resize -20<CR>', opts)
-map('n', '<leader>v[', ':vertical resize -20<CR>', opts)
+map('n', '<leader>h]', ':resize +10<CR>', opts)
+map('n', '<leader>v]', ':vertical resize +10<CR>', opts)
+map('n', '<leader>h[', ':resize -10<CR>', opts)
+map('n', '<leader>v[', ':vertical resize -10<CR>', opts)
 
 -- Visual
 map('n', '<C-a>', 'ggVG', { desc = "Select all text" })
