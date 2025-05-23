@@ -30,6 +30,7 @@ map('n', '<leader>v[', ':vertical resize -10<CR>', opts)
 map('n', '<C-a>', 'ggVG', { desc = "Select all text" })
 map('n', 'dl', '"_dd', { desc = "Delete line without copying" })
 map('n', 'dw', '"_dw', { desc = "Delete word without copying" })
+map('v', 'x', '"_d', { desc = "Delete selected text without copying" })
 
 -- Toggle NERDTree
 map("n", ",", ":NvimTreeToggle<CR>", opts)
