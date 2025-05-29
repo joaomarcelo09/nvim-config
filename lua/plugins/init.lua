@@ -3,6 +3,11 @@ return {
 
   require("plugins.alpha"),
 
+  {
+  "princejoogie/tailwind-highlight.nvim",
+  ft = { "html", "javascriptreact", "typescriptreact", "vue", "svelte" },
+  },
+
   -- Nerdtree
   {
   "nvim-tree/nvim-tree.lua",

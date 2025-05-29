@@ -80,7 +80,7 @@ map('n', '<leader>ff', function()
   builtin.find_files({
     previewer = true, 
     layout_strategy = 'horizontal', 
-    winblend = 20, 
+    winblend = 0, 
     border = true, 
     borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' },
   })
@@ -91,7 +91,7 @@ map('n', '<leader>fg', function()
   builtin.live_grep({
     previewer = true,
     layout_strategy = 'horizontal',
-    winblend = 20,
+    winblend = 0,
     border = true,
     borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' },
   })
