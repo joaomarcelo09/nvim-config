@@ -4,6 +4,7 @@ local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
 local dap, dapui = require("dap"), require("dapui")
 local buffer_utils = require("utils.buffer")
+local telescope_utils = require("utils.telescope")
 
 -- SHORTCUTS
 
@@ -39,7 +40,7 @@ map("n", ",", ":NvimTreeToggle<CR>", opts)
 -- Controls of bufferline
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
 map('n', 'L', ':BufferLineCycleNext<CR>', opts)map('n', '<leader>c', ':bdelete<CR>', opts)
-map('n', '<leader>c', buffer_utils.smart_bdelete, opts)
+map('n', 'q', buffer_utils.smart_bdelete, opts)
 
 -- Debugger SHORTCUTS
 
@@ -97,6 +98,8 @@ map('n', '<leader>fg', function()
     borderchars = { '─', '│', '─', '│', '┌', '┐', '└', '┘' },
   })
 end, { desc = "Live Grep" })
+
+map('v', '<leader>g', telescope_utils.live_grep_visual_selection, opts)
 
 -- Git Diff using Fugitive
 map('n', '<leader>gc', ':Gdiffsplit<CR>', { desc = "Git Diff" })
