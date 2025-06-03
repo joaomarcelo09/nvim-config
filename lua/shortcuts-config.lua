@@ -3,6 +3,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
 local dap, dapui = require("dap"), require("dapui")
+local buffer_utils = require("utils.buffer")
 
 -- SHORTCUTS
 
@@ -37,8 +38,8 @@ map("n", ",", ":NvimTreeToggle<CR>", opts)
 
 -- Controls of bufferline
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
-map('n', 'L', ':BufferLineCycleNext<CR>', opts)
-map('n', '<leader>c', ':bdelete<CR>', opts)
+map('n', 'L', ':BufferLineCycleNext<CR>', opts)map('n', '<leader>c', ':bdelete<CR>', opts)
+map('n', '<leader>c', buffer_utils.smart_bdelete, opts)
 
 -- Debugger SHORTCUTS
 

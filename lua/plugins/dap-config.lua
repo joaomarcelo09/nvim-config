@@ -1,6 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 local dap_python = require('dap-python')
+local dapui_utils = require('utils/dap')
 
 local venv_python = "/home/joaogomes/miniconda3/bin/python3"
 dap_python.setup(venv_python)
@@ -37,7 +38,7 @@ dap.configurations.python = {
     request = 'launch',
     name = 'Django Runserver',
     program = "${workspaceFolder}/src/manage.py",
-    args = { "runserver", "--noreload" },
+    args = { "runserver" },
     django = true,
     justMyCode = false,
   },
@@ -53,14 +54,13 @@ require("dapui").setup({
         { id = "breakpoints", size = 0.15 },
         { id = "stacks", size = 0.10 },
       },
-      size = 40, -- 🧱 width of the left sidebar
-      position = "left",
+      size = 30,
+      position = "right",
     },
     {
       -- Elements shown on the bottom
       elements = {
         "repl",
-        "console"
       },
       size = 10, -- 📏 height of the bottom window
       position = "bottom",
@@ -72,6 +72,9 @@ require("nvim-dap-virtual-text").setup()
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
+end
+dap.listeners.after.event_initialized["dapui_reset"] = function()
+  dapui_utils.reset_dapui()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
