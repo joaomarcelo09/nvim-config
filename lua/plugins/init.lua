@@ -2,6 +2,7 @@
 return {
 
   require("plugins.alpha"),
+  require("plugins.auto-session"),
 
   {
   "princejoogie/tailwind-highlight.nvim",
