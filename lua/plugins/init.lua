@@ -3,6 +3,8 @@ return {
 
   require("plugins.alpha"),
   require("plugins.auto-session"),
+  require("plugins.colorizer"),
+  require("plugins.neodev"),
 
   {
   "princejoogie/tailwind-highlight.nvim",
