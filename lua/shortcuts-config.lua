@@ -114,7 +114,7 @@ map('n', '<leader>c]', ':Gdiffsplit<CR>', { desc = "Next Conflict" })
 map('n', '<leader>gm', ':!git mergetool<CR>', { desc = "Git Mergetool" })
 
 -- LSP config
-map('n', 'gd', vim.lsp.buf.definition, opts)
+map('n', 'gd', telescope_utils.go_to_first_definition, opts)
 map('n', 'gdd', vim.lsp.buf.declaration, opts)
 map('n', 'gr', vim.lsp.buf.references, opts)
 map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Action" })

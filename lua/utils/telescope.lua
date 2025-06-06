@@ -30,5 +30,21 @@ function M.live_grep_visual_selection()
   end
 end
 
+function M.go_to_first_definition()
+  local first_client = vim.lsp.get_clients({ bufnr = 0 })[1] 
+  local offset_encoding = first_client and first_client.offset_encoding or 'utf-16' 
+  local params = vim.lsp.util.make_position_params(nil,offset_encoding)
+  vim.lsp.buf_request(0, 'textDocument/definition', params, function(err, result, ctx, _)
+    if err or not result or vim.tbl_isempty(result) then
+      vim.notify('[LSP] Definition not found.', vim.log.levels.WARN)
+      return
+    end
+
+    -- Se for múltiplo, pega só o primeiro
+    local location = result[1] or result
+    vim.lsp.util.show_document(location, 'utf-8', {focus=true})
+  end)
+end
+
 return M
 
