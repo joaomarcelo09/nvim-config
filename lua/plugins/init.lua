@@ -5,6 +5,8 @@ return {
   require("plugins.auto-session"),
   require("plugins.colorizer"),
   require("plugins.neodev"),
+  require("plugins.template-string"),
+  require("plugins.rainbow"),
 
   {
   "princejoogie/tailwind-highlight.nvim",
