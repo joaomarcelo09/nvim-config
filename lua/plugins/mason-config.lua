@@ -1,5 +1,3 @@
-print("Configuring mason debugger")
-
 require("mason").setup()
 
 require("mason-tool-installer").setup({
@@ -21,6 +19,3 @@ require("mason-nvim-dap").setup({
   ensure_installed = { "node2", "python" },
   automatic_setup = true,
 })
-
-print("loaded mason")
-

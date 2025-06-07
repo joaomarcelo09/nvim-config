@@ -1,5 +1,3 @@
-print('Start tailwind lsp')
-
 local on_attach = function(client, bufnr)
   -- Only activate if it's the Tailwind CSS language server
   if client.name == "tailwindcss" then
@@ -21,4 +19,3 @@ require('lspconfig').tailwindcss.setup({
     },
   },
 })
-print('Tailwind loaded')

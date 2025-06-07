@@ -46,6 +46,3 @@ vim.api.nvim_create_autocmd("FileType", {
     jdtls.start_or_attach(config)
   end,
 })
-
-print("✅ Java LSP (jdtls) configured successfully.")
-

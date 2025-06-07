@@ -1,5 +1,3 @@
-print("Start ts lsp")
-
 local lspconfig = require('lspconfig')
 
 -- Capabilities básicas para o LSP
@@ -28,5 +26,3 @@ lspconfig.ts_ls.setup {
     }
   }
 }
-
-print("Sucess load typescript LS")
