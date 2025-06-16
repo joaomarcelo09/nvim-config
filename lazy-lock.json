@@ -45,7 +45,7 @@
   "telescope-fzy-native.nvim": { "branch": "master", "commit": "282f069504515eec762ab6d6c89903377252bf5b" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "template-string.nvim": { "branch": "main", "commit": "da5f326b65fb74fd068aa1d8b55461b64c8fb23b" },
-  "vim": { "branch": "master", "commit": "d4b0823100c702af127cba8dd5595a8f599041ec" },
+  "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "vim-airline": { "branch": "master", "commit": "41c5f54507fd865c8c00fe1f4bb390a59b6894ef" },
   "vim-airline-themes": { "branch": "master", "commit": "0e976956eb674db8a6f72fae4dda6d1277433660" },
   "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },

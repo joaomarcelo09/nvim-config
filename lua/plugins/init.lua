@@ -17,13 +17,7 @@ return {
   require("plugins.nerdtree-config"),
 
   -- Themes
-  {
-    "dracula/vim",
-    as = "dracula",
-    config = function()
-      require("plugins.theme-config")
-    end,
-  },
+  require("plugins.colorscheme"), 
 
 {
   "williamboman/mason.nvim",
