@@ -28,6 +28,10 @@ map('n', '<leader>v]', ':vertical resize +10<CR>', opts)
 map('n', '<leader>h[', ':resize -10<CR>', opts)
 map('n', '<leader>v[', ':vertical resize -10<CR>', opts)
 
+-- Splits
+map('n', '<leader>sv', ':vsplit<CR>', opts)  -- Vertical split
+map('n', '<leader>sh', ':split<CR>', opts)  -- Horizontal split
+
 -- Visual
 map('n', '<C-a>', 'ggVG', { desc = "Select all text" })
 map('n', 'dl', '"_dd', { desc = "Delete line without copying" })

@@ -7,6 +7,7 @@ return {
   require("plugins.neodev"),
   require("plugins.template-string"),
   require("plugins.rainbow"),
+  require("plugins.git"),
 
   {
   "princejoogie/tailwind-highlight.nvim",
