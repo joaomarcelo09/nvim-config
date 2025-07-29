@@ -19,8 +19,4 @@ return {
       ]])
     end,
   },
-  {
-    "github/copilot.vim",
-    event = { "BufReadPre", "BufNewFile" },
-  },
 }
