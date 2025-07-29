@@ -4,6 +4,7 @@ require("mason-tool-installer").setup({
   ensure_installed = {
     "jdtls",
     "ts_ls",
+    "tailwindcss-language-server",
     "eslint_d",
     "prettier",
     "node-debug2-adapter",

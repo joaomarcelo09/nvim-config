@@ -14,8 +14,8 @@ function M.reset_dapui()
           { id = "breakpoints", size = 0.15 },
           { id = "stacks", size = 0.10 },
         },
-        size = 30,
-        position = "right",
+        size = 35,
+        position = "left",
       },
       {
         -- Elements shown on the bottom

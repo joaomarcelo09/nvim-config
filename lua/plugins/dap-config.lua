@@ -3,8 +3,22 @@ local dapui = require("dapui")
 local dap_python = require('dap-python')
 local dapui_utils = require('utils/dap')
 
-local venv_python = "/home/joaogomes/miniconda3/bin/python3"
-dap_python.setup(venv_python)
+local function get_python_path()
+  local cwd = vim.fn.getcwd()
+  local parent_venv = "/home/joaogomes/font/flowts/venv/bin/python"
+
+  if vim.fn.executable(parent_venv) == 1 then
+    return parent_venv
+  elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+    return cwd .. "/.venv/bin/python"
+  elseif vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+    return cwd .. "/venv/bin/python"
+  else
+    return "python3" -- fallback global
+  end
+end
+
+dap_python.setup(get_python_path())
 local manage_py = "/home/joaogomes/font/flowts/demo/src/manage.py"
 
 dap.adapters.node2 = {
@@ -36,6 +50,7 @@ dap.configurations.python = {
   {
     type = 'python',
     request = 'launch',
+    python = get_python_path(),
     name = 'Django Runserver',
     program = "${workspaceFolder}/src/manage.py",
     args = { "runserver" },
@@ -54,8 +69,8 @@ require("dapui").setup({
         { id = "breakpoints", size = 0.15 },
         { id = "stacks", size = 0.10 },
       },
-      size = 30,
-      position = "right",
+      size = 35,
+      position = "left",
     },
     {
       -- Elements shown on the bottom
