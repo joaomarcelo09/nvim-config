@@ -8,6 +8,7 @@ return {
   require("plugins.template-string"),
   require("plugins.rainbow"),
   require("plugins.git"),
+  require("plugins.codeium"),
 
   {
   "princejoogie/tailwind-highlight.nvim",
