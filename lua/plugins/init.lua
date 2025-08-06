@@ -73,6 +73,7 @@ return {
   -- Debugger plugins
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     config = function() require("plugins.dap-config") end,
   },
   "mfussenegger/nvim-dap-python",  -- No config? Or add if you have one

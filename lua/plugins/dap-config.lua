@@ -2,6 +2,7 @@ local dap = require("dap")
 local dapui = require("dapui")
 local dap_python = require('dap-python')
 local dapui_utils = require('utils/dap')
+local dap_virtual_text = require("nvim-dap-virtual-text")
 
 local function get_python_path()
   local cwd = vim.fn.getcwd()
@@ -59,37 +60,11 @@ dap.configurations.python = {
   },
 }
 
-require("dapui").setup({
-  layouts = {
-    {
-      -- Elements shown on the left
-      elements = {
-        { id = "scopes", size = 0.25 },
-        { id = "watches", size = 0.50 },
-        { id = "breakpoints", size = 0.15 },
-        { id = "stacks", size = 0.10 },
-      },
-      size = 35,
-      position = "left",
-    },
-    {
-      -- Elements shown on the bottom
-      elements = {
-        "repl",
-      },
-      size = 10, -- 📏 height of the bottom window
-      position = "bottom",
-    },
-  },
-})
-
-require("nvim-dap-virtual-text").setup()
+dapui_utils.setup_dapui()
+dap_virtual_text.setup()
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
-end
-dap.listeners.after.event_initialized["dapui_reset"] = function()
-  dapui_utils.reset_dapui()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
