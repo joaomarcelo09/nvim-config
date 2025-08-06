@@ -2,7 +2,7 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local builtin = require('telescope.builtin')
-local dap, dapui = require("dap"), require("dapui")
+local dap, dapui, dap_utils = require("dap"), require("dapui"), require("utils.dap")
 local buffer_utils = require("utils.buffer")
 local telescope_utils = require("utils.telescope")
 
@@ -64,6 +64,7 @@ map("n", "<Leader>du", dapui.toggle)
 map('n', '<leader>dr', function()
   dap.terminate()
   vim.defer_fn(function()
+    dap_utils.reset_dapui() 
     dap.run_last()
     print("🔁 DAP restarted with updated code.")
   end, 100)
