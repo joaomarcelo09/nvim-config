@@ -39,12 +39,13 @@ dap.configurations.typescript = {
     cwd = vim.fn.getcwd(),
     sourceMaps = true,
     outFiles = { "${workspaceFolder}/dist/**/*.js" },  -- Make sure to point to the compiled JS output
-    runtimeExecutable = "node",  -- Use node to run it
+    runtimeExecutable = "ts-node-dev",  -- Use node to run it
     runtimeArgs = { "-r", "ts-node/register" },  -- Use ts-node to run TypeScript
     protocol = "inspector", 
     console = "integratedTerminal",
     skipFiles = { "<node_internals>/**" },  -- Ignore node internals
   },
+  { name = "Other" },
 }
 
 dap.configurations.python = {
