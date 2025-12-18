@@ -43,7 +43,9 @@ map("n", ",", ":NvimTreeToggle<CR>", opts)
 
 -- Controls of bufferline
 map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
-map('n', 'L', ':BufferLineCycleNext<CR>', opts)map('n', '<leader>c', ':bdelete<CR>', opts)
+map('n', 'L', ':BufferLineCycleNext<CR>', opts)
+map('n', 'K', ':BufferLinePick<CR>', opts)
+map('n', '<leader>c', ':bdelete<CR>', opts)
 map('n', 'q', buffer_utils.smart_bdelete, opts)
 
 -- Debugger SHORTCUTS
