@@ -52,6 +52,13 @@ return {
   "neovim/nvim-lspconfig",
   },
 
+  {
+  "yioneko/nvim-vtsls",
+  dependencies = {
+    "neovim/nvim-lspconfig",
+  },
+  },
+
   {"mfussenegger/nvim-jdtls"},
 
     -- Syntax Support
