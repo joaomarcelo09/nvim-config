@@ -1,26 +1,34 @@
 local lspconfig = require('lspconfig')
+local home = os.getenv("HOME")
 
--- Capabilities básicas para o LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.ts_ls.setup {
-  capabilities = capabilities, -- Passa as capacidades para o servidor
-  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
+  capabilities = capabilities,   
+  init_options = {
+      plugins = {
+        {
+          name = '@vue/typescript-plugin',
+          location = home .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+          languages = { 'vue' },
+        },
+      },
+  },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue" },
   on_attach = function(client, bufnr)
-    -- Desabilitar a formatação padrão para usar ferramentas como Prettier
     client.server_capabilities.documentFormattingProvider = false
   end,
   settings = {
     typescript = {
       suggest = {
-        autoImports = true, -- Habilita sugestões de auto-import
-        completeFunctionCalls = true -- Completa funções automaticamente com parênteses
+        autoImports = true,
+        completeFunctionCalls = true
       }
     },
     javascript = {
       suggest = {
-        autoImports = true, -- Mesmo para JavaScript
+        autoImports = true,
         completeFunctionCalls = true
       }
     }

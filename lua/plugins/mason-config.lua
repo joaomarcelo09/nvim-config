@@ -5,6 +5,7 @@ require("mason-tool-installer").setup({
     "jdtls",
     "ts_ls",
     "tailwindcss-language-server",
+    "vue-language-server",
     "eslint_d",
     "prettier",
     "node-debug2-adapter",
@@ -13,7 +14,7 @@ require("mason-tool-installer").setup({
 })
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "eslint", "jdtls" },
+  ensure_installed = { "ts_ls", "eslint", "jdtls", "vue_ls" },
 })
 
 require("mason-nvim-dap").setup({
