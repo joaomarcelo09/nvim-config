@@ -44,9 +44,9 @@ cmp.setup {
 
 -- LSP configuration
 local capabilities = require'cmp_nvim_lsp'.default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require'lspconfig'.vimls.setup {
-  capabilities = capabilities,
-}
+vim.lsp.config('vimls', {
+    capabilities = capabilities
+  })
 
 local npairs = require('nvim-autopairs')
 

@@ -5,7 +5,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-require('lspconfig').tailwindcss.setup({
+vim.lsp.config("tailwindcss", {
   settings = {
     tailwindCSS = {
       experimental = {
