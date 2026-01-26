@@ -19,7 +19,7 @@ return {
   require("plugins.nerdtree-config"),
 
   -- Themes
-  require("plugins.colorscheme"), 
+  require("plugins.themes.cyberpunkpink"), 
 
 {
   "williamboman/mason.nvim",
