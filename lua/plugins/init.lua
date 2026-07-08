@@ -10,11 +10,6 @@ return {
   require("plugins.git"),
   require("plugins.codeium"),
 
-  {
-  "princejoogie/tailwind-highlight.nvim",
-  ft = { "html", "javascriptreact", "typescriptreact", "vue", "svelte" },
-  },
-
   -- Nerdtree
   require("plugins.nerdtree-config"),
 
@@ -62,7 +57,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function() require("plugins.threesitter") end,
+  },
 
   -- Prisma support
   "prisma/vim-prisma",

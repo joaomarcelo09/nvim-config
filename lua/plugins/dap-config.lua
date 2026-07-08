@@ -22,14 +22,6 @@ end
 dap_python.setup(get_python_path())
 local manage_py = "/home/joaogomes/font/flowts/demo/src/manage.py"
 
-dap.adapters.node2 = {
-  type = "executable",
-  command = "node",
-  args = {
-    os.getenv("HOME") .. "/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js",
-  },
-}
-
 dap.configurations.typescript = {
   {
     name = "Launch NestJS (main.ts)",

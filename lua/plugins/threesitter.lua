@@ -1,44 +1,49 @@
--- Make sure treesitter and textobjects are installed via your plugin manager
-require'nvim-treesitter.configs'.setup {
-  -- Enable syntax highlighting
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
+local select = require("nvim-treesitter-textobjects.select")
+local move = require("nvim-treesitter-textobjects.move")
+
+require("nvim-treesitter-textobjects").setup {
+  select = {
+    lookahead = true,
   },
-
-  -- Enable Tree-sitter based textobjects
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to matching textobj
-      keymaps = {
-        -- Around and Inside functions
-        ["af"] = "@function.outer", -- around function
-        ["if"] = "@function.inner", -- inside function
-
-        -- Around and Inside classes
-        ["ac"] = "@class.outer",    -- around class
-        ["ic"] = "@class.inner",    -- inside class
-
-        -- Around and Inside HTML/TSX tags
-        ["at"] = "@tag.outer",      -- around tag (e.g., <div>...</div>)
-        ["it"] = "@tag.inner",      -- inside tag (e.g., content inside <div>)
-      },
-    },
-
-    move = {
-      enable = true,
-      set_jumps = true, -- keep jump history
-      goto_next_start = {
-        ["]f"] = "@function.outer", -- move to next function
-        ["]c"] = "@class.outer",    -- move to next class
-        ["]t"] = "@tag.outer",      -- move to next tag (e.g., <div>)
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer", -- move to previous function
-        ["[c"] = "@class.outer",    -- move to previous class
-        ["[t"] = "@tag.outer",      -- move to previous tag (e.g., <div>)
-      },
-    },
+  move = {
+    set_jumps = true,
   },
 }
+
+vim.keymap.set({ "x", "o" }, "af", function()
+  select.select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+  select.select_textobject("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ac", function()
+  select.select_textobject("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ic", function()
+  select.select_textobject("@class.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "at", function()
+  select.select_textobject("@tag.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "it", function()
+  select.select_textobject("@tag.inner", "textobjects")
+end)
+
+vim.keymap.set({ "n", "x", "o" }, "]f", function()
+  move.goto_next_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]c", function()
+  move.goto_next_start("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]t", function()
+  move.goto_next_start("@tag.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[f", function()
+  move.goto_previous_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[c", function()
+  move.goto_previous_start("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[t", function()
+  move.goto_previous_start("@tag.outer", "textobjects")
+end)
