@@ -11,7 +11,7 @@ require("mason-tool-installer").setup({
 })
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "ts_ls", "eslint", "jdtls"},
+  ensure_installed = { "ts_ls", "eslint", "jdtls", "pyright"},
 })
 
 require("mason-nvim-dap").setup({
