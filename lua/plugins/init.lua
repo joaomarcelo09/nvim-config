@@ -14,7 +14,7 @@ return {
   require("plugins.nerdtree-config"),
 
   -- Themes
-  require("plugins.themes.cyberpunkpink"), 
+  require("plugins.themes.tokyonight"), 
 
 {
   "williamboman/mason.nvim",

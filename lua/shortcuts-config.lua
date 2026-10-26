@@ -120,6 +120,9 @@ map('n', '<leader>c]', ':Gdiffsplit<CR>', { desc = "Next Conflict" })
 -- Git Mergetool (use external merge tool)
 map('n', '<leader>gm', ':!git mergetool<CR>', { desc = "Git Mergetool" })
 
+-- Toggle Markdown rendering
+map('n', '<leader>md', '<cmd>RenderMarkdown toggle<CR>', { desc = "Toggle Markdown Render" })
+
 -- LSP config
 map('n', 'gd', telescope_utils.go_to_first_definition, opts)
 map('n', 'gdd', vim.lsp.buf.declaration, opts)
