@@ -9,6 +9,7 @@ return {
   require("plugins.rainbow"),
   require("plugins.git"),
   require("plugins.codeium"),
+  require("plugins.render-markdown"),
 
   -- Nerdtree
   require("plugins.nerdtree-config"),
